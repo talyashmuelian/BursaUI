@@ -1,0 +1,58 @@
+﻿<Window x:Class="BursaUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:BursaUI"
+        mc:Ignorable="d"
+        Title="Currency Exchange" Height="450" Width="auto">
+
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Currency Exchange" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" FontSize="20"/>
+
+
+        <DataGrid x:Name="dataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserResizeColumns="True"  CanUserAddRows="False">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    
+                    <Separator/>
+                    <MenuItem Header="Choose Columns">
+                        <MenuItem Header="Pair ID" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Base Currency Name" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Base Currency Country" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Base Currency Abbreviation" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Target Currency Name" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Target Currency Country" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Target Currency Abbreviation" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Value" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Min Value Currency Name" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                        <MenuItem Header="Max Value" Click="ToggleColumnVisibility_Click" IsCheckable="True" IsChecked="True"/>
+                       
+                    </MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+           
+            <DataGrid.Columns>
+               
+                <DataGridTextColumn Header="Pair ID" Binding="{Binding PairId}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Base Currency Name" Binding="{Binding BaseCurrencyName}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Base Currency Country" Binding="{Binding BaseCurrencyCountry}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Base Currency Abbreviation" Binding="{Binding BaseCurrencyAbbreviation}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Target Currency Name" Binding="{Binding TargetCurrencyName}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Target Currency Country" Binding="{Binding TargetCurrencyCountry}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Target Currency Abbreviation" Binding="{Binding TargetCurrencyAbbreviation}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Value" Binding="{Binding Value}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Min Value" Binding="{Binding MinValue}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Max Value" Binding="{Binding MaxValue}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
+
